@@ -1,0 +1,375 @@
+/*
+Theme Name: ITHome
+Theme URI: 
+Description: 一个类似IT之家网站的WordPress主题
+Author: 3335
+Author URI: 
+Version: 1.0
+*/
+
+/* 通用样式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* 导航栏样式 */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+.left-menu {
+    display: flex;
+    color: white;
+    gap: 20px;
+}
+
+.right-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.middle-menu {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: #575757;
+}
+
+/* 顶部两栏样式 */
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tag-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.tag-list a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+
+.tag-list a:hover {
+    text-decoration: underline;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.search-bar input {
+    border: none;
+    padding: 5px;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+.search-bar button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.main-title {
+    background-color: #f0f0f0;
+    padding: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+}
+
+.main-title .article-number {
+    background-color: red;
+    color: white;
+    font-size: 1rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+}
+
+.main-title h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.main-title a {
+    color: #333;
+    text-decoration: none;
+}
+
+.main-title a:hover {
+    text-decoration: underline;
+}
+
+.article-number {
+    background-color: red;
+    color: white;
+    font-size: 1rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    margin-right: 10px;
+}
+
+/* 页面布局样式 */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.left-column {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.left-column h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.left-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.left-column ul li {
+    font-size: 1rem;
+    color: #666;
+    padding: 5px 0;
+}
+
+.right-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.right-column .article {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.right-column .article h3 {
+    font-size: 1rem;
+    margin: 0;
+    color: #333;
+}
+
+.right-column .article .date {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.right-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.right-column a {
+    color: #333;
+    text-decoration: none;
+}
+
+.right-column a:hover {
+    text-decoration: underline;
+}
+
+/* 文章页面 (single.php) 样式 */
+
+/* 利用 .single-post 类 (由WordPress自动添加到文章页面的body标签上) 
+  来覆盖主页的网格布局，实现居中效果。
+*/
+.single-post .container {
+    display: flex; /* 关键：将布局从 grid 改为 flex */
+    justify-content: center; /* 关键：实现水平居中 */
+    grid-template-columns: none; /* 移除继承的网格栏设置 */
+    padding: 20px;
+}
+
+/* 这是你想要的白色卡片容器样式
+*/
+.post-container {
+    width: 100%;
+    max-width: 860px; /* 限制最大宽度以保证阅读体验 */
+    background-color: white; /* 白色背景 */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* 类似主页的阴影效果 */
+    box-sizing: border-box;
+}
+
+/* 文章头部（标题和作者信息）的居中样式
+*/
+.post-header {
+    text-align: center; /* 关键：使其内部的块级和内联元素全部居中 */
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.post-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+/*
+  作者、日期等 meta 信息的 flex 居中对齐
+*/
+.post-meta {
+    font-size: 0.9rem;
+    color: #888;
+    display: flex; /* 使用flex布局 */
+    flex-wrap: wrap;
+    justify-content: center; /* 关键：让信息项在行内居中 */
+    gap: 15px;
+}
+
+.post-meta a {
+    color: #e63946;
+    text-decoration: none;
+}
+
+.post-meta a:hover {
+    text-decoration: underline;
+}
+
+
+/* 文章正文样式 (这部分无需修改，保持原样即可) */
+.post-content {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.post-content .post-featured-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.post-content p {
+    margin-bottom: 1.5em;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5 {
+    color: #333;
+    margin-top: 2.5em;
+    margin-bottom: 1.5em;
+    line-height: 1.4;
+    font-weight: bold;
+}
+
+.post-content h2 { font-size: 1.8rem; }
+.post-content h3 { font-size: 1.5rem; }
+.post-content h4 { font-size: 1.2rem; }
+
+.post-content a {
+    color: #e63946;
+    text-decoration: none;
+    border-bottom: 1px solid #e63946;
+    transition: all 0.2s ease;
+}
+
+.post-content a:hover {
+    background-color: #e63946;
+    color: white;
+    border-bottom-color: white;
+}
+
+.post-content ul,
+.post-content ol {
+    margin-bottom: 1.5em;
+    padding-left: 25px;
+}
+
+/* 文章底部（标签）样式 (这部分无需修改，保持原样即可) */
+.post-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.post-tags a {
+    display: inline-block;
+    background-color: #f4f4f4;
+    color: #666;
+    padding: 5px 12px;
+    margin: 0 5px 5px 0;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.post-tags a:hover {
+    background-color: #e63946;
+    color: white;
+}
